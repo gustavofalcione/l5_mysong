@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
+interface AlbumInLocalStorage {
+  albumName: string; // nome do album
+  artistName: string;
+  url: string;
+}
 @Component({
   selector: 'app-album-history',
   templateUrl: './album-history.component.html',
@@ -7,9 +12,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AlbumHistoryComponent implements OnInit {
 
+  public albumData: AlbumInLocalStorage[] = JSON.parse(localStorage.getItem("albumData") || '[]');
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  deleteItem(i: number) {
+    const dataParsed = this.albumData;
+    dataParsed.splice(i, 1);
+    localStorage.setItem("albumData", JSON.stringify(dataParsed));
+    this.albumData = dataParsed;
   }
 
 }

@@ -1,14 +1,15 @@
 <section class="d-flex flex-column justify-content-center">
   <a
+    *ngFor="let item of albumData; let i = index"
     class="content d-flex align-items-center justify-content-between">
     <i class="material-icons video_icon">
       video_library
     </i>
     <div class="albumName d-flex flex-column align-items-center">
-      <p>Believe</p>
-      <span>Cher</span>
+      <p>{{ item?.albumName }}</p>
+      <span>{{ item?.artistName }}</span>
     </div>
-    <button>
+    <button (click)="deleteItem(i)">
       <i class="material-icons trash_icon">
         delete
       </i>

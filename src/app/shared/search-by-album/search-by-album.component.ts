@@ -5,8 +5,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { ApiService } from 'src/app/services/api.service';
 
 interface Album {
-  albumName: string;
-  artistName: string; // nome do album
+  albumName: string; // nome do album
+  artistName: string;
   url: string;
 }
 
@@ -31,6 +31,10 @@ export class SearchByAlbumComponent implements OnInit {
 
   ngOnInit(): void {
     this.initForm();
+    const hasArtistInLocal = JSON.parse(localStorage.getItem("albumData") || '[]');
+    if (hasArtistInLocal.length) {
+      this.albumList = hasArtistInLocal
+    }
   }
 
   initForm() {
@@ -54,8 +58,10 @@ export class SearchByAlbumComponent implements OnInit {
 
     if (this.form.valid) {
       this.apiService.getAlbumData(albumName, artistName).subscribe(res => {
-        this.data = res;
-        this.albumList.unshift({albumName: this.data.album.artist, url: this.data.album.url, artistName: this.data.album.name});
+        this.data = res.album;
+        this.form.reset();
+        this.formDirective.resetForm();
+        this.albumList.unshift({albumName: this.data.artist, url: this.data.url, artistName: this.data.name});
         localStorage.setItem("albumData", JSON.stringify(this.albumList));
       });
 

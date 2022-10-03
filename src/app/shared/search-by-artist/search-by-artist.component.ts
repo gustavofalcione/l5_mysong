@@ -3,7 +3,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl, FormGroupDirective } from '@angular/forms';
 import { LocalStorageService } from 'src/app/services/local-storage.service';
 
-interface Teste {
+interface Artist {
   name: string;
   url: string;
 }
@@ -19,7 +19,7 @@ export class SearchByArtistComponent implements OnInit {
   @ViewChild(FormGroupDirective) formDirective!: FormGroupDirective;
 
 
-  public artistList: Teste[] = [];
+  public artistList: Artist[] = [];
   public data!: any;
 
   constructor(
@@ -56,7 +56,7 @@ export class SearchByArtistComponent implements OnInit {
         this.form.reset();
         this.formDirective.resetForm();
         this.artistList.unshift({name: this.data?.name, url: this.data.url});
-        this.localStorageService.set("artistData", JSON.stringify(this.artistList));
+        localStorage.setItem("artistData", JSON.stringify(this.artistList));
       });
 
     }
