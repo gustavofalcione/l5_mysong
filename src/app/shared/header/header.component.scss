@@ -1,0 +1,56 @@
+nav {
+  width: 100%;
+  padding: 1rem 0;
+  background-color: var(--gray-900);
+  color: var(--gray-50);
+
+  .container {
+    .logo {
+      cursor: pointer;
+      color: var(--gray-50);
+
+      span {
+        font-size: 2.5rem;
+        font-family: 'Kalam', cursive;
+
+        .play {
+          color: var(--pink-500);
+        }
+
+      }
+    }
+
+    .active {
+      // background: blue;
+      &::after {
+        content: '';
+        margin-top: 5px;
+        border-radius: 1px;
+        display: block;
+        height: 2px;
+        width: 15px;
+        background-color: var(--pink-500);
+      }
+    }
+
+    .navbar-toggler {
+      border: none;
+
+      &:focus {
+        outline: transparent;
+      }
+
+      span {
+        color: var(--gray-50);
+      }
+    }
+
+    ul {
+      li a {
+        color: var(--gray-50);
+      }
+    }
+  }
+
+
+}

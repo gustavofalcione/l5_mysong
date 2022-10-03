@@ -1,0 +1,9 @@
+@import '../../../config-scss/material-config.scss';
+
+form {
+  margin-top: 2rem;
+}
+
+::ng-deep .mat-ink-bar {
+  background-color: var(--pink-500);
+}

@@ -1,0 +1,17 @@
+<section class="d-flex flex-column justify-content-center">
+  <a
+    *ngFor="let item of artistData; let i = index"
+    class="d-flex align-items-center content justify-content-between">
+    <i class="material-icons star_icon">
+      star_border
+    </i>
+    <span>{{item?.name}}</span>
+    <button (click)="deleteItem(i)">
+      <i class="material-icons trash_icon">
+        delete
+      </i>
+    </button>
+  </a>
+</section>
+
+

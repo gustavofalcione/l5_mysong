@@ -1,1 +1,69 @@
-/* You can add global styles to this file, and also import other style files */
+@import './config-scss/reset.scss';
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import './config-scss/variables.scss';
+@import './config-scss/material-config.scss';
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background: var(--gray-800);
+  color: var(--gray-300);
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+// Estilos globais p/ input de pesquisa
+.label-search {
+  width: 100%;
+  max-width: 300px;
+  background: var(--gray-900);
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  cursor: pointer;
+
+  input {
+    padding: 1rem;
+    background: none;
+    color: var(--gray-300);
+    flex: 1;
+    border: none;
+    outline: none;
+  }
+}
+
+// Estilos globais p/ botao submit de pesquisa
+.submit-search {
+  background: var(--pink-500);
+  color: var(--gray-100);
+  padding: .575rem;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  transition: fitler .4s;
+
+  &:hover {
+    filter: brightness(.7);
+  }
+
+}
+
+::ng-deep .mat-ink-bar {
+  background-color: var(--gray-50);
+}
+
+.title {
+  font-weight: 100;
+  font-size: 2rem;
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+.validation-error {
+  margin-top: .313rem;
+
+  p {
+    color: rgb(189, 6, 6);
+    font-size: .875rem;
+    font-weight: bold;
+  }
+}

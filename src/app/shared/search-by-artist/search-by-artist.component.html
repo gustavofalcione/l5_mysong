@@ -1,0 +1,33 @@
+<section class="formArtist">
+  <form
+    class="d-flex"
+    [formGroup]="form"
+    #formDir="ngForm"
+    (ngSubmit)="onSubmitSearch()"
+  >
+  <label class="label-search d-flex justify-content-between align-items-center">
+    <input
+      type="text"
+      placeholder="Informe o artista..."
+      required
+      formControlName="artist"
+    >
+  </label>
+  <button type="submit" class="submit-search">
+    <i class="material-icons">
+      search
+    </i>
+  </button>
+</form>
+<div
+  *ngIf="artist.invalid && formDir.submitted"
+  class="validation-error"
+>
+  <p *ngIf="artist.errors?.['required']">
+    * Campo obrigatório
+  </p>
+</div>
+</section>
+
+
+

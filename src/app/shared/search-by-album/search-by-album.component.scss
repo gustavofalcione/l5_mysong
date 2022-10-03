@@ -1,0 +1,16 @@
+form {
+  margin-top: 2rem;
+
+  button[type="submit"] {
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+  }
+
+  .labelRounded {
+    width: 100%;
+    max-width: 350px ;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    margin-bottom: .313rem;
+  }
+}

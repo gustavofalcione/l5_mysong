@@ -1,0 +1,13 @@
+@import '../../../config-scss/material-config.scss';
+
+h1 {
+  margin: 2rem 0;
+  align-self: center;
+  color: var(--gray-50);
+}
+
+::ng-deep .mat-ink-bar {
+  background-color: var(--pink-500)!important;
+}
+
+

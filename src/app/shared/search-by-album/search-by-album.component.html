@@ -1,0 +1,40 @@
+<section>
+  <form
+    class="d-flex flex-column"
+    [formGroup]="form"
+    #formDir="ngForm"
+    (ngSubmit)="onSubmitSearch()"
+  >
+    <label class="label-search d-flex justify-content-between align-items-center labelRounded">
+      <input
+        type="text"
+        placeholder="Informe o álbum..."
+        formControlName="album"
+      >
+    </label>
+    <div
+      *ngIf="album.invalid && formDir.submitted"
+      class="validation-error"
+    >
+      <p>* Campo obrigatório</p>
+    </div>
+    <label class="label-search d-flex justify-content-between align-items-center labelRounded">
+      <input
+        type="text"
+        placeholder="Informe o artista..."
+        formControlName="artist"
+      >
+    </label>
+    <div
+      *ngIf="album.invalid && formDir.submitted"
+      class="validation-error"
+    >
+      <p>* Campo obrigatório</p>
+    </div>
+    <button type="submit" class="submit-search">
+      <i class="material-icons">
+        search
+      </i>
+    </button>
+  </form>
+</section>
