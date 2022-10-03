@@ -11,6 +11,10 @@
   overflow: hidden !important;
 }
 
+::ng-deep .mat-tab-content {
+  overflow: hidden !important;
+}
+
 
 ::ng-deep .mat-tab-label, .mat-tab-link {
   color: var(--gray-300);

@@ -6,6 +6,7 @@ import { LocalStorageService } from 'src/app/services/local-storage.service';
 interface Artist {
   name: string;
   url: string;
+  date: string;
 }
 
 @Component({
@@ -46,6 +47,10 @@ export class SearchByArtistComponent implements OnInit {
     return this.form.get("artist")!;
   }
 
+  setDate() {
+    return new Date().toLocaleString('pt-BR', { year: '2-digit', month: '2-digit', day: '2-digit' })
+  }
+
   onSubmitSearch() {
     let artistName = this.form.value.artist;
     console.log(artistName)
@@ -55,10 +60,9 @@ export class SearchByArtistComponent implements OnInit {
         this.data = res.artist;
         this.form.reset();
         this.formDirective.resetForm();
-        this.artistList.unshift({name: this.data?.name, url: this.data.url});
+        this.artistList.unshift({name: this.data?.name, url: this.data.url, date: this.setDate()});
         localStorage.setItem("artistData", JSON.stringify(this.artistList));
       });
-
     }
 
   }

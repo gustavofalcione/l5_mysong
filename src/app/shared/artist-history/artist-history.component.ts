@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 interface ArtistsInLocalStorage {
   name: string;
   url: string;
+  date: string;
 }
 
 @Component({

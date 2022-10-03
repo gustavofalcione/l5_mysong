@@ -8,6 +8,7 @@ interface Album {
   albumName: string; // nome do album
   artistName: string;
   url: string;
+  date: string;
 }
 
 @Component({
@@ -52,6 +53,10 @@ export class SearchByAlbumComponent implements OnInit {
     return this.form.get("album")!;
   }
 
+  setDate() {
+    return new Date().toLocaleString('pt-BR', { year: '2-digit', month: '2-digit', day: '2-digit' })
+  }
+
   onSubmitSearch() {
     let albumName = this.form.value.album;
     let artistName = this.form.value.artist;
@@ -61,7 +66,7 @@ export class SearchByAlbumComponent implements OnInit {
         this.data = res.album;
         this.form.reset();
         this.formDirective.resetForm();
-        this.albumList.unshift({albumName: this.data.artist, url: this.data.url, artistName: this.data.name});
+        this.albumList.unshift({albumName: this.data.artist, url: this.data.url, artistName: this.data.name, date: this.setDate()});
         localStorage.setItem("albumData", JSON.stringify(this.albumList));
       });
 

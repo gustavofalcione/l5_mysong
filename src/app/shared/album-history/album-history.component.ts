@@ -4,6 +4,7 @@ interface AlbumInLocalStorage {
   albumName: string; // nome do album
   artistName: string;
   url: string;
+  date: string;
 }
 @Component({
   selector: 'app-album-history',
