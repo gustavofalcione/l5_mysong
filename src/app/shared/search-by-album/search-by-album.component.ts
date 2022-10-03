@@ -1,8 +1,8 @@
-import { LocalStorageService } from 'src/app/services/local-storage.service';
 import { FormGroup, FormBuilder, Validators, FormControl, FormGroupDirective } from '@angular/forms';
 
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ApiService } from 'src/app/services/api.service';
+import { Router } from '@angular/router';
 
 interface Album {
   albumName: string; // nome do album
@@ -25,9 +25,8 @@ export class SearchByAlbumComponent implements OnInit {
   public data!: any;
 
   constructor(
-    private formBuilder: FormBuilder,
     private apiService: ApiService,
-    private localStorageService: LocalStorageService
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -62,16 +61,14 @@ export class SearchByAlbumComponent implements OnInit {
     let artistName = this.form.value.artist;
 
     if (this.form.valid) {
-      this.apiService.getAlbumData(albumName, artistName).subscribe(res => {
-        this.data = res.album;
-        this.form.reset();
-        this.formDirective.resetForm();
-        this.albumList.unshift({albumName: this.data.artist, url: this.data.url, artistName: this.data.name, date: this.setDate()});
-        localStorage.setItem("albumData", JSON.stringify(this.albumList));
-      });
-
-      // this.localStorageService.set("albumData", this.albumList);
-
+        this.apiService.getAlbumData(albumName, artistName).subscribe(res => {
+          this.data = res.album;
+          this.form.reset();
+          this.formDirective.resetForm();
+          this.albumList.unshift({albumName: this.data.artist, url: this.data.url, artistName: this.data.name, date: this.setDate()});
+          localStorage.setItem("albumData", JSON.stringify(this.albumList));
+          this.router.navigate(['history']);
+        });
     }
   }
 }

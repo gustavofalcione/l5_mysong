@@ -10,16 +10,7 @@ export class SearchBoxComponent implements OnInit {
 
   constructor(private api: ApiService) { }
 
-
   ngOnInit(): void {
-    // this.search()
-  }
-
-  searchAlbum() {
-    this.api.getAlbumData(`Madonna`, 'Madonna').subscribe(
-      res => console.log(res)
-    )
-
   }
 
 }

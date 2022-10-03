@@ -20,10 +20,9 @@ export class ArtistHistoryComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  deleteItem(i: number | string) {
-    const dataParsed = JSON.parse(localStorage.getItem("artistData") || '[]');
+  deleteItem(i: number) {
+    const dataParsed = this.artistData;
     dataParsed.splice(i, 1);
-    console.log(dataParsed);
     localStorage.setItem("artistData", JSON.stringify(dataParsed));
     this.artistData = dataParsed;
   }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, UrlTree } from '@angular/router';
 
 interface AlbumInLocalStorage {
   albumName: string; // nome do album
@@ -15,7 +16,7 @@ export class AlbumHistoryComponent implements OnInit {
 
   public albumData: AlbumInLocalStorage[] = JSON.parse(localStorage.getItem("albumData") || '[]');
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -28,3 +29,4 @@ export class AlbumHistoryComponent implements OnInit {
   }
 
 }
+

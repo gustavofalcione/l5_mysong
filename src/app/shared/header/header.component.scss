@@ -21,7 +21,6 @@ nav {
     }
 
     .active {
-      // background: blue;
       &::after {
         content: '';
         margin-top: 5px;

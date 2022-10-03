@@ -1,7 +1,7 @@
 import { ApiService } from './../../services/api.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, FormControl, FormGroupDirective } from '@angular/forms';
-import { LocalStorageService } from 'src/app/services/local-storage.service';
+import { FormGroup, Validators, FormControl, FormGroupDirective } from '@angular/forms';
+import { Router } from '@angular/router';
 
 interface Artist {
   name: string;
@@ -24,9 +24,8 @@ export class SearchByArtistComponent implements OnInit {
   public data!: any;
 
   constructor(
-    private formBuilder: FormBuilder,
     private apiService: ApiService,
-    private localStorageService: LocalStorageService
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -53,15 +52,15 @@ export class SearchByArtistComponent implements OnInit {
 
   onSubmitSearch() {
     let artistName = this.form.value.artist;
-    console.log(artistName)
 
     if (this.form.valid) {
       this.apiService.getArtistData(artistName).subscribe((res) => {
         this.data = res.artist;
         this.form.reset();
         this.formDirective.resetForm();
-        this.artistList.unshift({name: this.data?.name, url: this.data.url, date: this.setDate()});
+        this.artistList.unshift({name: this.data?.name, url: this.data?.url, date: this.setDate()});
         localStorage.setItem("artistData", JSON.stringify(this.artistList));
+        this.router.navigate(['history']);
       });
     }
 
