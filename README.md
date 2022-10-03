@@ -1,27 +1,43 @@
 # MySong
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.6.
+# Sobre o projeto
 
-## Development server
+My Song é um projeto desenvolvido com o intuito de realizar buscas em uma API que retorne informações de artistas e albuns espalhados pelo mundo da música nacional e internacional.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+A interface conta com duas rotas principais, a página Home, onde são realizadas buscas de acordo com a forma escolhida pelo usuário, podendo informar o nome do artista, ou o nome do album e artista escolhido. Após a busca ser realizada, o usuario é redirecionado para a página de Histórico onde pode fazer a gestão dos dados.
 
-## Code scaffolding
+## Layout responsivo
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+![Mobile 1](https://github.com/gustavofalcione/l5_mysong/blob/main/assets/mobile1.png) ![Mobile 2](https://github.com/gustavofalcione/l5_mysong/blob/main/assets/mobile2.png)
 
-## Build
+## Layout Desktop
+![Web 1](https://github.com/gustavofalcione/l5_mysong/blob/main/assets/web1.png)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+![Web 2](https://github.com/gustavofalcione/l5_mysong/blob/main/assets/web3.png)
 
-## Running unit tests
+# Tecnologias utilizadas
+## Front end
+- Angular / TypeScript / JavaScript
+- Bootstrap
+- Angular Material
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+# Como executar o projeto
 
-## Running end-to-end tests
+## Front end web
+Pré-requisitos: npm / yarn
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```bash
+# clonar repositório
+git clone https://github.com/gustavofalcione/l5_mysong.git
 
-## Further help
+# instalar dependências
+yarn install
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+# executar o projeto
+yarn dev
+```
+# Autor
+
+Gustavo Falcione Cagnato
+
+https://www.linkedin.com/in/gustavo-falcione-cagnato/
